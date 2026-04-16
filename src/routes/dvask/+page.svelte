@@ -161,21 +161,21 @@
 			<h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-16">Kommende</h2>
 
 			<div class="space-y-0 divide-y divide-neutral-800/50">
-				{#each [
-					{ date: 'TBA', month: '', event: 'Event Placeholder', venue: 'Sted, By' },
-					{ date: 'TBA', month: '', event: 'Event Placeholder', venue: 'Sted, By' }
-				] as event}
-					<div class="flex flex-col sm:flex-row sm:items-center gap-4 py-6">
-						<div class="sm:w-20 text-amber-400 font-bold text-xl font-mono">{event.date}</div>
-						<div class="flex-1">
-							<h3 class="font-semibold text-white text-lg">{event.event}</h3>
-							<p class="text-sm text-neutral-500">{event.venue}</p>
-						</div>
-						<span class="text-xs text-neutral-600 border border-neutral-800 px-3 py-1.5 rounded-full uppercase tracking-wider">
-							Kommer snart
-						</span>
+				<!-- KORSA -->
+				<div class="flex flex-col sm:flex-row sm:items-center gap-4 py-6">
+					<div class="sm:w-20 text-center">
+						<div class="text-amber-400 font-bold text-2xl font-mono leading-none">1.</div>
+						<div class="text-amber-400/70 text-sm font-medium uppercase">Mai</div>
 					</div>
-				{/each}
+					<div class="flex-1">
+						<h3 class="font-semibold text-white text-lg">KORSA</h3>
+						<p class="text-sm text-neutral-500">Korsatunnelen, Ålesund</p>
+					</div>
+					<a href="https://billetto.no/e/korsa-billetter-1877450" target="_blank" rel="noopener noreferrer"
+					   class="text-xs text-amber-400 border border-amber-400/40 px-4 py-1.5 rounded-full uppercase tracking-wider hover:bg-amber-400/10 transition-colors text-center">
+						Kjøp billetter
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>
