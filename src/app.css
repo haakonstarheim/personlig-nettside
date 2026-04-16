@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Globale basisstiler */
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply font-sans antialiased;
+		background-color: #fefcf9;
+		color: #2a221b;
+	}
+
+	h1, h2, h3, h4 {
+		@apply font-display;
+	}
+}
+
+/* Gjenbrukbare utility-klasser */
+@layer components {
+	.section-container {
+		@apply max-w-6xl mx-auto px-6 py-16 md:py-24;
+	}
+
+	.section-title {
+		@apply text-3xl md:text-4xl font-bold mb-4;
+	}
+
+	.section-subtitle {
+		@apply text-lg text-neutral-600 mb-12 max-w-2xl;
+	}
+
+	/* Knappestiler */
+	.btn-primary {
+		@apply inline-flex items-center gap-2 px-6 py-3 font-medium rounded-lg transition-colors duration-200;
+		background-color: #2a221b;
+		color: #fefcf9;
+	}
+	.btn-primary:hover {
+		background-color: #7c5e3d;
+	}
+
+	.btn-secondary {
+		@apply inline-flex items-center gap-2 px-6 py-3 border-2 border-brand-300 font-medium rounded-lg
+		       hover:border-brand-500 hover:text-brand-700 transition-colors duration-200;
+		color: #3d3229;
+	}
+
+	.btn-dvask {
+		@apply inline-flex items-center gap-2 px-6 py-3 bg-dvask-600 text-white font-medium rounded-lg
+		       hover:bg-dvask-700 transition-colors duration-200;
+	}
+}
