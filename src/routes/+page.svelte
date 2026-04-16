@@ -213,7 +213,7 @@
 				<div class="text-sm text-warm-800/50">
 					<p class="font-semibold text-warm-900">Høgskulen på Vestlandet</p>
 					<p>Bergen, Norge</p>
-					<p>Aug 2010 – Sep 2022</p>
+					<p>Aug 2020 – Sep 2022</p>
 				</div>
 				<div>
 					<h3 class="text-xl font-bold text-warm-900 mb-2">Grunnskolelærer, 5–10</h3>
