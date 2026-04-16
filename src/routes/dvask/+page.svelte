@@ -160,19 +160,46 @@
 			<p class="text-amber-400/80 text-sm font-medium tracking-[0.2em] uppercase mb-4">Events</p>
 			<h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-16">Kommende</h2>
 
-			<div class="space-y-0 divide-y divide-neutral-800/50">
-				<!-- KORSA -->
-				<div class="flex flex-col sm:flex-row sm:items-center gap-4 py-6">
-					<div class="sm:w-20 text-center">
-						<div class="text-amber-400 font-bold text-2xl font-mono leading-none">1.</div>
-						<div class="text-amber-400/70 text-sm font-medium uppercase">Mai</div>
+			<!-- KORSA plakat og info -->
+			<div class="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8 md:gap-12 items-start">
+				<!-- Plakat -->
+				<div class="rounded-xl overflow-hidden shadow-2xl shadow-black/50">
+					<img src="/images/dvask/korsa-plakat.jpg" alt="KORSA – Kultursjokk, 1. og 2. mai" class="w-full" />
+				</div>
+
+				<!-- Event-info -->
+				<div class="space-y-6">
+					<div>
+						<p class="text-amber-400/70 text-sm font-medium uppercase tracking-wider mb-2">Kultursjokk presenterer</p>
+						<h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight">KORSA</h3>
+						<p class="text-neutral-400 mt-2">Keiser Wilhelms Gate 25, Ålesund &middot; ID: 20+</p>
 					</div>
-					<div class="flex-1">
-						<h3 class="font-semibold text-white text-lg">KORSA</h3>
-						<p class="text-sm text-neutral-500">Korsatunnelen, Ålesund</p>
+
+					<div class="space-y-4">
+						<div class="flex items-start gap-4">
+							<div class="w-20 text-center flex-shrink-0">
+								<div class="text-amber-400 font-bold text-xl font-mono leading-none">1.</div>
+								<div class="text-amber-400/70 text-sm font-medium uppercase">Mai</div>
+							</div>
+							<div>
+								<h4 class="font-semibold text-white">Drum & Bass — Fredag</h4>
+								<p class="text-sm text-neutral-500">Dvask · Difee · Simon Peter · Burge</p>
+							</div>
+						</div>
+						<div class="flex items-start gap-4">
+							<div class="w-20 text-center flex-shrink-0">
+								<div class="text-amber-400 font-bold text-xl font-mono leading-none">2.</div>
+								<div class="text-amber-400/70 text-sm font-medium uppercase">Mai</div>
+							</div>
+							<div>
+								<h4 class="font-semibold text-white">Techno — Lørdag</h4>
+								<p class="text-sm text-neutral-500">Betong · Bick Dick Bandido · Amnesi · KP</p>
+							</div>
+						</div>
 					</div>
+
 					<a href="https://billetto.no/e/korsa-billetter-1877450" target="_blank" rel="noopener noreferrer"
-					   class="text-xs text-amber-400 border border-amber-400/40 px-4 py-1.5 rounded-full uppercase tracking-wider hover:bg-amber-400/10 transition-colors text-center">
+					   class="inline-block text-sm text-amber-400 border border-amber-400/40 px-6 py-2.5 rounded-full uppercase tracking-wider hover:bg-amber-400/10 transition-colors">
 						Kjøp billetter
 					</a>
 				</div>
