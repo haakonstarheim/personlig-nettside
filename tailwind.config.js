@@ -3,60 +3,44 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
-			/* Designsystem — farger, fonter og spacing */
+			/*
+			 * Designsystem «Skarp»
+			 * ====================
+			 * To paletter: CV-siden (lys) og Dvask (mørk).
+			 * Ingen avrundede hjørner og ingen skygger noe sted —
+			 * flatene skilles med linjer og kontrast.
+			 */
 			colors: {
-				// Profesjonell CV-palett: varm, myk, cream/brun
-				brand: {
-					50: '#fdf8f3',
-					100: '#f5ebe0',
-					200: '#edddcc',
-					300: '#dbc5a8',
-					400: '#c9a97e',
-					500: '#b08d5e',
-					600: '#97744a',
-					700: '#7c5e3d',
-					800: '#654c33',
-					900: '#4a382a'
-				},
-				// Varm cream/beige bakgrunnsfarger
-				warm: {
-					50: '#fefcf9',
-					100: '#fdf7f0',
-					200: '#f9efe3',
-					300: '#f3e4d1',
-					800: '#3d3229',
-					900: '#2a221b'
-				},
-				// DJ Dvask-palett: mørkere, mer energisk
+				// CV — lys
+				paper: '#fafaf8',
+				ink: '#121212',
+				ink2: '#3d3d3a',
+				muted: '#5c5c59',
+				line: '#d9d9d5',
+				accent: '#c2410c', // aksent som tekst på lys bakgrunn
+				'accent-fill': '#e2561f', // aksent som flatefarge
+				'accent-dark': '#f08a5d', // aksent på mørk bakgrunn
+				'sidebar-muted': '#a3a3a0',
+				'sidebar-dim': '#7a7a77',
+				'sidebar-text': '#d4d4d1',
+
+				// Dvask — mørk
 				dvask: {
-					50: '#fff0f6',
-					100: '#ffdeeb',
-					200: '#fcc2d7',
-					300: '#faa2c1',
-					400: '#f783ac',
-					500: '#f06595',
-					600: '#e64980',
-					700: '#d6336c',
-					800: '#c2255c',
-					900: '#a61e4d'
-				},
-				neutral: {
-					50: '#f8f9fa',
-					100: '#f1f3f5',
-					200: '#e9ecef',
-					300: '#dee2e6',
-					400: '#ced4da',
-					500: '#adb5bd',
-					600: '#868e96',
-					700: '#495057',
-					800: '#343a40',
-					900: '#212529'
+					bg: '#0e0e0e',
+					text: '#f4f4f2',
+					body: '#c9c9c5',
+					muted: '#a3a3a0',
+					dim: '#7a7a77',
+					line: '#2a2a2a',
+					accent: '#ff7a45'
 				}
 			},
 			fontFamily: {
-				sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-				display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+				sans: ['Schibsted Grotesk', 'system-ui', 'sans-serif'],
 				mono: ['JetBrains Mono', 'monospace']
+			},
+			borderRadius: {
+				none: '0'
 			}
 		}
 	},

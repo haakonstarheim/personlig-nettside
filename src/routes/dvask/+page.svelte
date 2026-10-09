@@ -1,246 +1,292 @@
 <!--
-  DJ-profilside for Dvask — redesignet.
-  Minimalistisk mørk stil inspirert av varme oransje/amber toner fra live-bilder.
-  Bruker ekte bilder fra Bilder/Dj Dvask.
+  Dvask (/dvask)
+  ==============
+  DJ-profilen i designet «Skarp»: helsvart flate, oransje aksent,
+  egen header og footer. Ingen avrundede hjørner og ingen skygger.
+  Seksjonene skilles med 1px-linjer.
 -->
+<script>
+	const nav = [
+		{ tekst: 'Musikk', href: '#dv-musikk' },
+		{ tekst: 'Live', href: '#dv-live' },
+		{ tekst: 'Events', href: '#dv-events' }
+	];
+
+	// Plassholdere fram til ekte mixer er lagt inn.
+	const mixer = [
+		{ tittel: 'Deep House Sessions Vol. 3', sted: 'Studio Mix', lengde: '1:15:00', aar: '2024' },
+		{ tittel: 'Techno Warehouse Set', sted: 'Live @ Klubb X', lengde: '2:00:00', aar: '2024' },
+		{ tittel: 'Melodic Journey', sted: 'Podcast Ep. 12', lengde: '0:58:00', aar: '2023' },
+		{ tittel: 'Peak Time Techno', sted: 'Live @ Festival', lengde: '1:30:00', aar: '2023' }
+	];
+
+	const datoer = [
+		{
+			dato: '01.05',
+			tittel: 'Drum & Bass — Fredag',
+			lineup: 'Dvask · Difee · Simon Peter · Burge'
+		},
+		{
+			dato: '02.05',
+			tittel: 'Techno — Lørdag',
+			lineup: 'Betong · Bick Dick Bandido · Amnesi · KP'
+		}
+	];
+</script>
+
 <svelte:head>
 	<title>DVASK — DJ | House · Disco · Allsang</title>
-	<meta name="description" content="DVASK — DJ fra Ålesund. House, disco og allsang. Spiller i hele Norge." />
+	<meta
+		name="description"
+		content="DVASK — DJ fra Ålesund. House, disco og allsang. Spiller i hele Norge."
+	/>
 </svelte:head>
 
-<div class="bg-neutral-950 text-white -mt-16">
+<div class="min-h-screen bg-dvask-bg text-dvask-text">
+	<!-- ══════════ HEADER ══════════ -->
+	<header
+		class="sticky top-0 z-20 flex h-[60px] items-center justify-between border-b border-dvask-line bg-dvask-bg"
+		style="padding-left: clamp(20px, 4vw, 48px); padding-right: clamp(20px, 4vw, 48px);"
+	>
+		<a href="#dv-topp" class="text-[20px] font-black tracking-[-0.02em]">DVASK</a>
+		<nav class="flex items-center gap-6 font-mono text-[12px] uppercase" style="letter-spacing: 0.06em;">
+			{#each nav as item}
+				<a href={item.href} class="text-dvask-muted transition-colors hover:text-dvask-text">
+					{item.tekst}
+				</a>
+			{/each}
+			<a href="#dv-booking" class="text-dvask-accent transition-colors hover:text-dvask-text">
+				Booking
+			</a>
+			<a href="/" class="text-dvask-dim transition-colors hover:text-dvask-text">← CV</a>
+		</nav>
+	</header>
 
-	<!-- ========== HERO — Fullscreen med action-shot ========== -->
-	<section class="relative h-screen flex items-end">
-		<!-- Bakgrunnsbilde -->
-		<div class="absolute inset-0">
+	<!-- ══════════ HERO ══════════ -->
+	<section
+		id="dv-topp"
+		class="grid border-b border-dvask-line"
+		style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); min-height: calc(100vh - 60px);"
+	>
+		<!-- container-type gjør at DVASK-tittelen skalerer etter
+		     kolonnebredden, ikke vindusbredden, så den aldri renner
+		     ut av cellen når heroen står i to kolonner. -->
+		<div
+			class="flex flex-col justify-between"
+			style="padding: clamp(24px, 4vw, 48px); container-type: inline-size;"
+		>
+			<p class="font-mono text-[12px] uppercase text-dvask-accent" style="letter-spacing: 0.08em;">
+				House / Disco / Allsang
+			</p>
+
+			<div>
+				<h1
+					class="font-black leading-[0.82] tracking-[-0.06em]"
+					style="font-size: clamp(72px, 28cqw, 220px);"
+				>
+					DVASK
+				</h1>
+				<p class="mt-6 max-w-[380px] text-[24px] font-medium text-dvask-body">
+					DJ fra Ålesund, spiller i hele Norge.
+				</p>
+				<div class="mt-8 flex flex-wrap gap-3">
+					<a
+						href="#dv-musikk"
+						class="bg-dvask-accent px-6 py-4 font-extrabold text-dvask-bg transition-colors hover:bg-dvask-text"
+					>
+						▶ Hør musikk
+					</a>
+					<a
+						href="#dv-booking"
+						class="border-2 border-dvask-text px-6 py-4 font-extrabold text-dvask-text transition-colors hover:bg-dvask-text hover:text-dvask-bg"
+					>
+						Booking
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="relative min-h-[420px]">
 			<img
 				src="/images/dvask/hero-action.jpg"
-				alt="DJ Dvask i aksjon ved Pioneer DJ-controlleren"
-				class="w-full h-full object-cover object-center"
+				alt="DJ Dvask i aksjon bak mikseren"
+				class="absolute inset-0 h-full w-full object-cover"
 			/>
-			<!-- Gradient overlay for lesbarhet -->
-			<div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/60 to-transparent"></div>
-		</div>
-
-		<!-- Hero-innhold -->
-		<div class="relative z-10 max-w-6xl mx-auto px-6 pb-20 md:pb-28 w-full">
-			<p class="text-amber-400/80 text-sm font-medium tracking-[0.3em] uppercase mb-4">
-				House · Disco · Allsang
-			</p>
-			<h1 class="text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter leading-none mb-6">
-				DVASK
-			</h1>
-			<p class="text-lg md:text-xl text-neutral-400 max-w-md leading-relaxed mb-8">
-				DJ fra Ålesund, spiller i hele Norge.
-			</p>
-			<div class="flex gap-4">
-				<a href="#musikk" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-neutral-950 font-semibold rounded-full hover:bg-amber-400 transition-colors duration-300">
-					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-					Hør musikk
-				</a>
-				<a href="#kontakt" class="inline-flex items-center gap-2 px-6 py-3 border border-neutral-600 text-neutral-300 font-medium rounded-full hover:border-amber-400 hover:text-amber-400 transition-colors duration-300">
-					Booking
-				</a>
-			</div>
-		</div>
-
-		<!-- Scroll-indikator -->
-		<div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
-			<div class="w-px h-12 bg-gradient-to-b from-transparent to-neutral-500 animate-pulse"></div>
 		</div>
 	</section>
 
-	<!-- ========== OM DVASK ========== -->
-	<section class="py-24 md:py-32">
-		<div class="max-w-6xl mx-auto px-6">
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-				<div>
-					<p class="text-amber-400/80 text-sm font-medium tracking-[0.2em] uppercase mb-4">Om</p>
-					<h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-						Den musikken<br />dere vil ha.
-					</h2>
-					<p class="text-neutral-400 leading-relaxed mb-4">
-						Jeg har brukt de siste årene som DJ og leder for Kultursjokk til å virkelig
-						utforske hva som funker — og hva som holder det gående til lysene slås på.
-						Med et repertoar som strekker seg fra glinsende disco og tidløs pop til dype
-						house-grooves og pulserende tech, tilpasser jeg meg rommet, stemningen og
-						menneskene foran meg. Ingen kveld er lik.
-					</p>
-					<p class="text-neutral-400 leading-relaxed mb-4">
-						Men det stopper ikke ved klubbkvelder. Enten det er et bryllupsselskap som trenger
-						den perfekte overgangen fra middag til dansegulv, eller en firmafest som skal
-						huskes i årevis — jeg har gjort det mange ganger før og vet hva som kreves.
-					</p>
-					<p class="text-neutral-500 leading-relaxed font-medium">
-						Book meg til neste arrangement, så tilpasser jeg meg til nøyaktig det dere trenger.
-					</p>
-				</div>
-				<div class="relative">
-					<img
-						src="/images/dvask/silhouette.jpg"
-						alt="Dvask silhuett i røyk og lys"
-						class="rounded-2xl w-full aspect-[4/3] object-cover"
-					/>
-					<div class="absolute inset-0 rounded-2xl ring-1 ring-white/10"></div>
-				</div>
-			</div>
+	<!-- ══════════ OM ══════════ -->
+	<section
+		class="grid border-b border-dvask-line"
+		style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));"
+	>
+		<div class="relative min-h-[360px]">
+			<img
+				src="/images/dvask/silhouette.jpg"
+				alt="Dvask i silhuett, røyk og lys"
+				class="absolute inset-0 h-full w-full object-cover"
+			/>
+		</div>
+
+		<div class="flex flex-col gap-5" style="padding: clamp(24px, 5vw, 72px);">
+			<p class="font-mono text-[12px] uppercase text-dvask-accent" style="letter-spacing: 0.08em;">
+				Om
+			</p>
+			<h2 class="font-black leading-[0.95] tracking-[-0.03em]" style="font-size: clamp(40px, 4.5vw, 60px);">
+				Den musikken dere vil ha.
+			</h2>
+			<p class="text-[17px] leading-[1.65] text-dvask-body">
+				Jeg har brukt de siste årene som DJ og leder for Kultursjokk til å virkelig utforske hva som
+				funker — og hva som holder det gående til lysene slås på. Med et repertoar som strekker seg
+				fra glinsende disco og tidløs pop til dype house-grooves og pulserende tech, tilpasser jeg
+				meg rommet, stemningen og menneskene foran meg. Ingen kveld er lik.
+			</p>
+			<p class="text-[17px] leading-[1.65] text-dvask-body">
+				Men det stopper ikke ved klubbkvelder. Enten det er et bryllupsselskap som trenger den
+				perfekte overgangen fra middag til dansegulv, eller en firmafest som skal huskes i årevis —
+				jeg har gjort det mange ganger før og vet hva som kreves.
+			</p>
+			<p class="text-[17px] font-semibold leading-[1.65] text-dvask-text">
+				Book meg til neste arrangement, så tilpasser jeg meg til nøyaktig det dere trenger.
+			</p>
 		</div>
 	</section>
 
-	<!-- ========== MUSIKK / MIXES ========== -->
-	<section id="musikk" class="py-24 md:py-32 border-t border-neutral-800/50">
-		<div class="max-w-6xl mx-auto px-6">
-			<p class="text-amber-400/80 text-sm font-medium tracking-[0.2em] uppercase mb-4">Musikk</p>
-			<h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-16">Mixes & Sets</h2>
+	<!-- ══════════ MIXES & SETS ══════════ -->
+	<section
+		id="dv-musikk"
+		class="border-b border-dvask-line py-[88px]"
+		style="padding-left: clamp(20px, 4vw, 48px); padding-right: clamp(20px, 4vw, 48px);"
+	>
+		<div class="flex flex-wrap items-end justify-between gap-4">
+			<h2 class="text-[48px] font-black leading-none tracking-[-0.03em]">Mixes &amp; sets</h2>
+			<p class="font-mono text-[12px] uppercase text-dvask-dim" style="letter-spacing: 0.06em;">
+				Tittel / Sted / Lengde / År
+			</p>
+		</div>
 
-			<div class="space-y-4">
-				{#each [
-					{ title: 'Deep House Sessions Vol. 3', venue: 'Studio Mix', date: '2024', duration: '1:15:00' },
-					{ title: 'Techno Warehouse Set', venue: 'Live @ Klubb X', date: '2024', duration: '2:00:00' },
-					{ title: 'Melodic Journey', venue: 'Podcast Ep. 12', date: '2023', duration: '0:58:00' },
-					{ title: 'Peak Time Techno', venue: 'Live @ Festival', date: '2023', duration: '1:30:00' }
-				] as mix, i}
-					<a href="#" class="group flex items-center gap-6 p-5 rounded-xl hover:bg-neutral-900/80 transition-colors duration-200">
-						<span class="text-neutral-600 text-sm font-mono w-8">{String(i + 1).padStart(2, '0')}</span>
-						<div class="flex-1 min-w-0">
-							<h3 class="font-semibold text-white group-hover:text-amber-400 transition-colors truncate">{mix.title}</h3>
-							<p class="text-sm text-neutral-500">{mix.venue}</p>
-						</div>
-						<span class="text-sm text-neutral-600 hidden sm:block">{mix.duration}</span>
-						<span class="text-sm text-neutral-600">{mix.date}</span>
-						<svg class="w-5 h-5 text-neutral-600 group-hover:text-amber-400 transition-colors flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-					</a>
+		<div class="mt-10">
+			{#each mixer as mix, i}
+				<a
+					href="#dv-musikk"
+					class="group grid items-center gap-4 border-t border-dvask-line py-5"
+					style="grid-template-columns: 56px minmax(0, 1fr) auto auto 24px;"
+				>
+					<span class="font-mono text-[13px] text-dvask-dim">
+						{String(i + 1).padStart(2, '0')}
+					</span>
+					<span class="min-w-0">
+						<span class="block truncate text-[21px] font-bold transition-colors group-hover:text-dvask-accent">
+							{mix.tittel}
+						</span>
+						<span class="block text-[14px] text-dvask-muted">{mix.sted}</span>
+					</span>
+					<span class="font-mono text-[13px] text-dvask-muted">{mix.lengde}</span>
+					<span class="font-mono text-[13px] text-dvask-muted">{mix.aar}</span>
+					<span class="text-dvask-dim transition-colors group-hover:text-dvask-accent">▶</span>
+				</a>
+			{/each}
+		</div>
+	</section>
+
+	<!-- ══════════ LIVE ══════════ -->
+	<section id="dv-live" class="border-b border-dvask-line">
+		<div class="grid grid-cols-3 gap-[2px] bg-dvask-line">
+			<div class="relative col-span-2 row-span-2">
+				<img
+					src="/images/dvask/overhead-green.jpg"
+					alt="Dvask ovenfra med turkist lys og fullt gulv"
+					class="absolute inset-0 h-full w-full object-cover"
+				/>
+			</div>
+			<img
+				src="/images/dvask/crowd-red-1.jpg"
+				alt="Publikum i rødt lys"
+				class="aspect-[4/3] w-full object-cover"
+			/>
+			<img
+				src="/images/dvask/crowd-red-2.jpg"
+				alt="Dvask ved mikseren i rødt lys"
+				class="aspect-[4/3] w-full object-cover"
+			/>
+		</div>
+	</section>
+
+	<!-- ══════════ EVENTS ══════════ -->
+	<section
+		id="dv-events"
+		class="grid gap-12 border-b border-dvask-line py-[88px]"
+		style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); padding-left: clamp(20px, 4vw, 48px); padding-right: clamp(20px, 4vw, 48px);"
+	>
+		<img
+			src="/images/dvask/korsa-plakat.jpg"
+			alt="Plakat — KORSA, 1. og 2. mai"
+			class="w-full max-w-[340px]"
+		/>
+
+		<div>
+			<p class="font-mono text-[12px] uppercase text-dvask-accent" style="letter-spacing: 0.08em;">
+				Kultursjokk presenterer
+			</p>
+			<h2 class="mt-4 font-black leading-[0.9] tracking-[-0.04em]" style="font-size: clamp(64px, 8vw, 104px);">
+				KORSA
+			</h2>
+			<p class="mt-4 font-mono text-[13px] text-dvask-muted">
+				Keiser Wilhelms gate 25, Ålesund · ID: 20+
+			</p>
+
+			<div class="mt-8">
+				{#each datoer as d}
+					<div
+						class="grid items-center gap-4 border-t border-dvask-line py-5 last:border-b"
+						style="grid-template-columns: 88px minmax(0, 1fr);"
+					>
+						<span class="text-[28px] font-black leading-none text-dvask-accent">{d.dato}</span>
+						<span>
+							<span class="block text-[18px] font-bold">{d.tittel}</span>
+							<span class="block text-[14px] text-dvask-muted">{d.lineup}</span>
+						</span>
+					</div>
 				{/each}
 			</div>
 
-			<p class="text-neutral-600 text-sm mt-8">
-				SoundCloud / Mixcloud-embeds legges til her.
-			</p>
-		</div>
-	</section>
-
-	<!-- ========== BILDEGALLERI ========== -->
-	<section class="py-24 md:py-32 border-t border-neutral-800/50">
-		<div class="max-w-6xl mx-auto px-6">
-			<p class="text-amber-400/80 text-sm font-medium tracking-[0.2em] uppercase mb-4">Galleri</p>
-			<h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-16">Live</h2>
-
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-				<!-- Stort bilde til venstre -->
-				<div class="md:col-span-2 md:row-span-2">
-					<img
-						src="/images/dvask/overhead-green.jpg"
-						alt="Dvask ovenfra med turkis lys og publikum"
-						class="w-full h-full object-cover rounded-xl aspect-[3/4] md:aspect-auto"
-					/>
-				</div>
-				<!-- To mindre bilder til høyre -->
-				<div>
-					<img
-						src="/images/dvask/crowd-red-1.jpg"
-						alt="Klubbscene med rødt lys og publikum"
-						class="w-full h-full object-cover rounded-xl aspect-[4/3]"
-					/>
-				</div>
-				<div>
-					<img
-						src="/images/dvask/crowd-red-2.jpg"
-						alt="DJ Dvask ved mikserbordet med rødt lys"
-						class="w-full h-full object-cover rounded-xl aspect-[4/3]"
-					/>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- ========== KOMMENDE EVENTS ========== -->
-	<section id="events" class="py-24 md:py-32 border-t border-neutral-800/50">
-		<div class="max-w-6xl mx-auto px-6">
-			<p class="text-amber-400/80 text-sm font-medium tracking-[0.2em] uppercase mb-4">Events</p>
-			<h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-16">Kommende</h2>
-
-			<!-- KORSA plakat og info -->
-			<div class="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8 md:gap-12 items-start">
-				<!-- Plakat -->
-				<div class="rounded-xl overflow-hidden shadow-2xl shadow-black/50">
-					<img src="/images/dvask/korsa-plakat.jpg" alt="KORSA – Kultursjokk, 1. og 2. mai" class="w-full" />
-				</div>
-
-				<!-- Event-info -->
-				<div class="space-y-6">
-					<div>
-						<p class="text-amber-400/70 text-sm font-medium uppercase tracking-wider mb-2">Kultursjokk presenterer</p>
-						<h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight">KORSA</h3>
-						<p class="text-neutral-400 mt-2">Keiser Wilhelms Gate 25, Ålesund &middot; ID: 20+</p>
-					</div>
-
-					<div class="space-y-4">
-						<div class="flex items-start gap-4">
-							<div class="w-20 text-center flex-shrink-0">
-								<div class="text-amber-400 font-bold text-xl font-mono leading-none">1.</div>
-								<div class="text-amber-400/70 text-sm font-medium uppercase">Mai</div>
-							</div>
-							<div>
-								<h4 class="font-semibold text-white">Drum & Bass — Fredag</h4>
-								<p class="text-sm text-neutral-500">Dvask · Difee · Simon Peter · Burge</p>
-							</div>
-						</div>
-						<div class="flex items-start gap-4">
-							<div class="w-20 text-center flex-shrink-0">
-								<div class="text-amber-400 font-bold text-xl font-mono leading-none">2.</div>
-								<div class="text-amber-400/70 text-sm font-medium uppercase">Mai</div>
-							</div>
-							<div>
-								<h4 class="font-semibold text-white">Techno — Lørdag</h4>
-								<p class="text-sm text-neutral-500">Betong · Bick Dick Bandido · Amnesi · KP</p>
-							</div>
-						</div>
-					</div>
-
-					<a href="https://billetto.no/e/korsa-billetter-1877450" target="_blank" rel="noopener noreferrer"
-					   class="inline-block text-sm text-amber-400 border border-amber-400/40 px-6 py-2.5 rounded-full uppercase tracking-wider hover:bg-amber-400/10 transition-colors">
-						Kjøp billetter
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- ========== BOOKING / KONTAKT ========== -->
-	<section id="kontakt" class="py-24 md:py-32 border-t border-neutral-800/50">
-		<div class="max-w-4xl mx-auto px-6 text-center">
-			<p class="text-amber-400/80 text-sm font-medium tracking-[0.2em] uppercase mb-4">Kontakt</p>
-			<h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Booking & Forespørsler</h2>
-			<p class="text-neutral-400 max-w-lg mx-auto mb-10 leading-relaxed">
-				Interessert i å booke Dvask til ditt event?
-			</p>
-
 			<a
-				href="mailto:haakonstarheim@gmail.com?subject=Booking%20Dvask"
-				class="inline-flex items-center gap-2 px-8 py-4 bg-white text-neutral-950 font-semibold rounded-full hover:bg-amber-400 transition-colors duration-300 text-lg"
+				href="https://billetto.no/e/korsa-billetter-1877450"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="mt-8 inline-block border-2 border-dvask-accent px-6 py-4 font-extrabold text-dvask-accent transition-colors hover:bg-dvask-accent hover:text-dvask-bg"
 			>
-				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-				Send forespørsel
-			</a>
-
-			<!-- Sosiale medier -->
-			<div class="flex gap-8 justify-center mt-12">
-				<a href="#" class="text-neutral-600 hover:text-white transition-colors text-sm tracking-wider uppercase">SoundCloud</a>
-				<a href="#" class="text-neutral-600 hover:text-white transition-colors text-sm tracking-wider uppercase">Instagram</a>
-				<a href="#" class="text-neutral-600 hover:text-white transition-colors text-sm tracking-wider uppercase">Mixcloud</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- ========== TILBAKE TIL CV ========== -->
-	<section class="py-16 border-t border-neutral-800/50">
-		<div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-			<p class="text-neutral-500 text-sm">Også kjent som Håkon Starheim Breivik</p>
-			<a href="/" class="text-neutral-400 hover:text-white transition-colors text-sm font-medium flex items-center gap-2">
-				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-				Se profesjonell CV
+				Kjøp billetter ↗
 			</a>
 		</div>
 	</section>
+
+	<!-- ══════════ BOOKING ══════════ -->
+	<section
+		id="dv-booking"
+		class="bg-dvask-accent py-24 text-dvask-bg"
+		style="padding-left: clamp(20px, 4vw, 48px); padding-right: clamp(20px, 4vw, 48px);"
+	>
+		<p class="font-mono text-[12px] uppercase" style="letter-spacing: 0.08em;">
+			Booking &amp; forespørsler
+		</p>
+		<h2 class="mt-6 font-black leading-[0.88] tracking-[-0.04em]" style="font-size: clamp(48px, 8vw, 120px);">
+			Interessert i å booke Dvask til ditt event?
+		</h2>
+		<a
+			href="mailto:haakonstarheim@gmail.com?subject=Booking%20Dvask"
+			class="mt-10 inline-block bg-dvask-bg px-7 py-[18px] font-extrabold text-dvask-text transition-colors hover:bg-dvask-text hover:text-dvask-bg"
+		>
+			Send forespørsel →
+		</a>
+	</section>
+
+	<!-- ══════════ FOOTER ══════════ -->
+	<footer
+		class="flex flex-wrap items-center justify-between gap-4 py-6 font-mono text-[12px] uppercase text-dvask-dim"
+		style="padding-left: clamp(20px, 4vw, 48px); padding-right: clamp(20px, 4vw, 48px); letter-spacing: 0.06em;"
+	>
+		<span>Også kjent som Håkon Starheim Breivik</span>
+		<a href="/" class="transition-colors hover:text-dvask-text">← Se profesjonell CV</a>
+	</footer>
 </div>

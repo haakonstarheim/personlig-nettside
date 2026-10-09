@@ -1,18 +1,12 @@
 <!--
-  Rot-layout: Importerer globale stiler, header og footer.
-  Wrapper rundt alle sider.
+  Rot-layout
+  ==========
+  Kun globale stiler. Headeren og footeren er sidespesifikke i
+  designet «Skarp»: CV-siden har navigasjonen i sidefeltet, og
+  Dvask har sin egen header og footer. Derfor ingen felles chrome her.
 -->
 <script>
 	import '../app.css';
-	import Header from '$lib/components/Header.svelte';
-	import Footer from '$lib/components/Footer.svelte';
 </script>
 
-<Header />
-
-<!-- Padding-top for å kompensere for fixed header -->
-<main class="pt-16 min-h-screen">
-	<slot />
-</main>
-
-<Footer />
+<slot />
